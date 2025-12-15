@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -62,4 +63,18 @@ dependencies {
     // ❌ REMOVE THESE COMPLETELY
     // io.insert-koin
     // retrofit 3.x
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.example"
+                artifactId = "bjsdk"
+                version = "1.0.0"
+            }
+        }
+    }
 }
