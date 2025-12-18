@@ -113,6 +113,15 @@ class MyAdapter(
     //ViewHolder for BANNER
     class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val bannerImageView: ImageView = itemView.findViewById(R.id.top_rated_img)
+
+        init {
+            itemView.post {
+                val screenHeight = itemView.resources.displayMetrics.heightPixels
+                val params = itemView.layoutParams
+                params.height = (screenHeight * 0.5).toInt()
+                itemView.layoutParams = params
+            }
+        }
         fun bind(imageUrl: String, onItemClicked: () -> Unit) {
             Glide.with(itemView.context)
                 .load(imageUrl)

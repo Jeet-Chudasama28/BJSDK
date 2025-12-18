@@ -16,9 +16,9 @@
         <ImageView
             android:id="@+id/top_rated_img"
             android:layout_width="match_parent"
-            android:layout_height="166dp"
+            android:layout_height="wrap_content"
             android:contentDescription="toprated_imgs"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitXY"/>
 
     </androidx.cardview.widget.CardView>
 

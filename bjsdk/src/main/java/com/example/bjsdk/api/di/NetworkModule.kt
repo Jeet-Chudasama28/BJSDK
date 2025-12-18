@@ -15,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val sdkModule = module {
 
-    // OkHttp
     single {
         OkHttpClient.Builder()
             .addInterceptor { chain ->

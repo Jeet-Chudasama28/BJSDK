@@ -17,6 +17,7 @@ import com.example.bjsdk.model.User
 import com.example.bjsdk.presentation.viewmodel.MainViewModel
 import com.example.bjsdk.utils.RecyclerType
 import com.example.bjsdk.utils.adapters.MyAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheetDialog(
@@ -34,7 +35,7 @@ class BottomSheetDialog(
             R.layout.detail_bottom_sheet,
             container, false
         )
-        val v2: View = inflater.inflate(
+        /*val v2: View = inflater.inflate(
             R.layout.ac_bottom_sheet,
             container, false
         )
@@ -55,7 +56,7 @@ class BottomSheetDialog(
         mainViewModel?.user2List?.observe(this, Observer { items ->
             accAdapter.submitUserList(items)
         })
-        accRecyclerView.adapter = accAdapter
+        accRecyclerView.adapter = accAdapter*/
 
         val imagView = v.findViewById<ImageView>(R.id.detail_img)
         val titleTxt = v.findViewById<TextView>(R.id.movie_title_txt)
@@ -64,6 +65,11 @@ class BottomSheetDialog(
         val ratingTxt = v.findViewById<TextView>(R.id.rating_txt)
         val descriptionTxt = v.findViewById<TextView>(R.id.description_txt)
         titleTxt.isSelected = true
+
+        val screenHeight = imagView.resources.displayMetrics.heightPixels
+        val params = imagView.layoutParams
+        params.height = (screenHeight * 0.5).toInt()
+        imagView.layoutParams = params
 
         val imageUrl = "https://image.tmdb.org/t/p/w500${item?.backdropPath}"
         Glide.with(this)
@@ -81,6 +87,19 @@ class BottomSheetDialog(
         ratingTxt.text = item?.voteAverage.toString()
         descriptionTxt.text = item?.overview
 
-        return if(userList.isEmpty()) v else v2
+        return v
+    }
+
+    override fun onStart() {
+        super.onStart()
+        dialog?.findViewById<View>(
+            com.google.android.material.R.id.design_bottom_sheet
+        )?.let { sheet ->
+            sheet.layoutParams.height = ViewGroup.LayoutParams.MATCH_PARENT
+            BottomSheetBehavior.from(sheet).apply {
+                state = BottomSheetBehavior.STATE_EXPANDED
+                skipCollapsed = true
+            }
+        }
     }
 }

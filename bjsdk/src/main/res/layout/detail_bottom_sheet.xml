@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/detail_img"
             android:layout_width="match_parent"
-            android:layout_height="166dp"
+            android:layout_height="wrap_content"
             android:contentDescription="toprated_imgs"
             android:scaleType="centerCrop"/>
 
