@@ -4,7 +4,7 @@ plugins {
     id("maven-publish")
 }
 
-version = "1.1.0"
+version = "1.1.1"
 android {
     namespace = "com.example.bjsdk"
     compileSdk = 36
