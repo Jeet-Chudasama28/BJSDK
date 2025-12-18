@@ -25,7 +25,7 @@ val sdkModule = module {
                     .header("Content-Type", "application/json")
                     .header(
                         "Authorization",
-                        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzllZmFhMjdhOGIxOWYxMDg1NDY1N2VjNzdjNjM5YSIsIm5iZiI6MTc1OTMxMzYxOS41OTEsInN1YiI6IjY4ZGNmZWQzMGNlZjcxN2M5MmI0MjYzMyIsInNjb3BlcyI6WyJhcGlfcmFkIl0sInZlcnNpb24iOjF9"
+                        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMzllZmFhMjdhOGIxOWYxMDg1NDY1N2VjNzdjNjM5YSIsIm5iZiI6MTc1OTMxMzYxOS41OTEsInN1YiI6IjY4ZGNmZWQzMGNlZjcxN2M5MmI0MjYzMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.U1ZnEKK7RH9npz5aVvQR8n6tH8dPM_EhusCSNFlzZ6w"
                     )
                     .build()
                 chain.proceed(request)
