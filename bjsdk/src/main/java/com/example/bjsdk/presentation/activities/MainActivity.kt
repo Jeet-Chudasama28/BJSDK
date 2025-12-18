@@ -1,6 +1,5 @@
 package com.example.bjsdk.presentation.activities
 
-import android.app.sdksandbox.SandboxedSdkProvider
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
@@ -15,7 +14,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.bjsdk.R
-import com.example.bjsdk.SdkProvider
 import com.example.bjsdk.databinding.SdkActivityMainBinding
 import com.example.bjsdk.presentation.viewmodel.MainViewModel
 import com.example.bjsdk.utils.RecyclerType
@@ -23,11 +21,12 @@ import com.example.bjsdk.utils.ScrollingDirection
 import com.example.bjsdk.utils.adapters.MyAdapter
 import com.example.bjsdk.utils.bottomsheets.BottomSheetDialog
 import kotlinx.coroutines.launch
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: SdkActivityMainBinding
-    private lateinit var mainViewModel: MainViewModel
+    private val mainViewModel: MainViewModel by viewModel()
     private var recyclerViewState: Parcelable? = null
     private lateinit var layoutManager: LinearLayoutManager
     private lateinit var trendingAdapter: MyAdapter
@@ -47,8 +46,6 @@ class MainActivity : AppCompatActivity() {
         binding = SdkActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        mainViewModel = SdkProvider.provideMainViewModel()
 
         lifecycleScope.launch {
             mainViewModel.scrollingDirection.collect { value ->

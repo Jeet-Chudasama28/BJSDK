@@ -4,6 +4,7 @@ plugins {
     id("maven-publish")
 }
 
+version = "1.1.0"
 android {
     namespace = "com.example.bjsdk"
     compileSdk = 36
@@ -56,6 +57,8 @@ dependencies {
     api("com.squareup.okhttp3:okhttp:4.12.0")
     api("com.squareup.retrofit2:retrofit:2.11.0")
     api("com.squareup.retrofit2:converter-gson:2.11.0")
+    api("io.insert-koin:koin-android:4.0.0")
+    api("io.insert-koin:koin-test:4.0.0")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
@@ -71,9 +74,9 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
 
-                groupId = "com.example"
-                artifactId = "bjsdk"
-                version = "1.0.0"
+                groupId = "com.github.Jeet-Chudasama28"
+                artifactId = "BJSDK"
+                version = project.version.toString()
             }
         }
     }

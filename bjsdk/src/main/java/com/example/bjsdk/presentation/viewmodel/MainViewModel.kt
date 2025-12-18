@@ -84,9 +84,9 @@ class MainViewModel(
                 repository.getBannerData()
             }
             _bannerData.value = bannerData
-            Log.d("APIEVENT", "Banner Data Success = ${bannerData.results}")
+            Log.d("BJSDKLOG", "Banner Data Success = ${bannerData.results}")
         } catch (e: Exception){
-            Log.d("APIEVENT", "Banner Data Error = ${e.message}")
+            Log.d("BJSDKLOG", "Banner Data Error = ${e.message}")
         }
     }
 
@@ -112,7 +112,7 @@ class MainViewModel(
                     }
                     else oldData
                 _trendingData.value = data.results + trimmedData
-                Log.d("APIEVENT", "Trending Data Success = ${data.results}")
+                Log.d("BJSDKLOG", "Trending Data Success = ${data.results}")
                 _loading = false
                 onComplete()
             } else {
@@ -130,12 +130,12 @@ class MainViewModel(
                     }
                     else oldData
                 _trendingData.value = trimmedData + data.results
-                Log.d("APIEVENT", "Trending Data Success = ${data.results}")
+                Log.d("BJSDKLOG", "Trending Data Success = ${data.results}")
                 _loading = false
                 onComplete()
             }
         } catch (e: Exception){
-            Log.d("APIEVENT", "Trending Data Error = ${e.message}")
+            Log.d("BJSDKLOG", "Trending Data Error = ${e.message}")
         }
     }
 
@@ -151,9 +151,9 @@ class MainViewModel(
             } else {
                 _upcomingData.value = data.results
             }
-            Log.d("APIEVENT", "Upcoming Data Success = ${data.results}")
+            Log.d("BJSDKLOG", "Upcoming Data Success = ${data.results}")
         } catch (e: Exception){
-            Log.d("APIEVENT", "Upcoming Data Error = ${e.message}")
+            Log.d("BJSDKLOG", "Upcoming Data Error = ${e.message}")
         }
     }
 
@@ -163,9 +163,9 @@ class MainViewModel(
                 repository.getGenreData()
             }
             _genreList.value = genreList
-            Log.d("APIEVENT", "Genre List Success = $genreList")
+            Log.d("BJSDKLOG", "Genre List Success = $genreList")
         } catch (e: Exception){
-            Log.d("APIEVENT", "Genre List Error = ${e.message}")
+            Log.d("BJSDKLOG", "Genre List Error = ${e.message}")
         }
     }
 }

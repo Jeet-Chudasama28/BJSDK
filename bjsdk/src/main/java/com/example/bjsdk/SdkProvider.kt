@@ -11,6 +11,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.example.bjsdk.presentation.viewmodel.MainViewModel
 
+/*
 object SdkProvider {
 
     private lateinit var apiService: ApiService
@@ -53,13 +54,6 @@ object SdkProvider {
         } catch (t: Throwable) {
             Log.e("BJSDKLOG", "SDK init failed", t)
         }
-
-}
-
-    fun provideMainViewModel(): MainViewModel {
-        check(initialized) {
-            "SDK not initialized. Call BjSdk.init(context) first."
-        }
-        return MainViewModel(repository, dbHelper)
     }
 }
+*/
