@@ -39,7 +39,7 @@ dependencyResolutionManagement {
 Add the following dependency in your **app-level build.gradle.kts**:
 
 ```kotlin
-implementation("com.github.Jeet-Chudasama28:BJSDK:1.1.1")
+implementation("com.github.Jeet-Chudasama28:BJSDK:1.1.2")
 ```
 
 Sync your project after adding the dependency.
